@@ -38,7 +38,8 @@ app.use(function errorHandler(error, req, res, next){
     }
     else {
         console.error(error)
-        response = {message: error.message}
+        logger.error(error.message)
+        response = {message: error.message, error}
     }
     response.status(500).json(response)
 })
